@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'SanFranciscoDisplay-Heavy';
+  src: url('../fonts/SanFranciscoDisplay-Heavy.eot');
+  src: url('../fonts/SanFranciscoDisplay-Heavy.woff') format('woff'),
+       url('../fonts/SanFranciscoDisplay-Heavy.ttf') format('truetype'),
+       url('../fonts/SanFranciscoDisplay-Heavy.svg#SanFranciscoDisplay-Heavy') format('svg'),
+       url('../fonts/SanFranciscoDisplay-Heavy.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

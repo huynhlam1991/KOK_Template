@@ -1,0 +1,272 @@
+﻿@model TranLe_pj.Models.PostModel
+@{
+    ViewBag.Title = "Chi tiết Giới thiệu - KOK Admin";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+<title>@ViewBag.Title</title>
+
+<div class="page-header">
+    <h1>
+        <a href="@Url.Action(ViewBag.ActionReturn)">Danh sách bài viết</a>
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Thông tin bài viết
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+@using (Html.BeginForm("SaveDataPost", "Manager", FormMethod.Post, new { id = "myForm", @class = "form-horizontal", @role = "form", @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.ProductID);
+    <input type="hidden" id="hdnCategoryPageID" name="hdnCategoryPageID" value="@ViewBag.hdnCategoryPageID" />
+    <input type="hidden" id="hdnActionReturn" name="hdnActionReturn" value="@ViewBag.ActionReturn" />
+    <input id="ImageOld" name="ImageOld" type="hidden" value="@Model.ImageName" />
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Ảnh đại diện </label>
+        <!-- #section:custom/file-input -->
+        <div class="col-xs-10 col-sm-3">
+            <input type="file" id="id-input-file-2" name="UploadImage" />
+            <div style="text-align: center;">
+                <span class="alert-danger">Kích thước yêu cầu: 200px x 200px</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Thuộc tính </label>
+
+        <div class="col-sm-10 checkbox-group">
+            <div class="checkbox pull-left">
+                <label>
+                    @Html.CheckBoxFor(m => m.IsHot)
+                    @*<input id="chkIsHot" name="chkIsHot" @if (Model.IsHot.HasValue && Model.IsHot.Value == true) {Html.Raw("checked='checked'"); } type="checkbox" class="ace" />*@
+                    <span class="lbl"> Hot</span>
+                </label>
+            </div>
+            <div class="checkbox pull-left">
+                <label>
+                    @*<input name="form-field-checkbox" type="checkbox" class="ace" />*@
+                    @Html.CheckBoxFor(m => m.IsNew)
+                    <span class="lbl"> New</span>
+                </label>
+            </div>
+            <div class="checkbox pull-left">
+                <label>
+                    @*<input name="form-field-checkbox" class="ace" type="checkbox" /*@
+                    @Html.CheckBoxFor(m => m.IsShowOnHomePage)
+                    <span class="lbl"> Hiển thị trang chủ</span>
+                </label>
+            </div>
+            <div class="checkbox pull-left">
+                <label>
+                    @*<input name="form-field-checkbox" class="ace" type="checkbox" /*@
+                    @Html.CheckBoxFor(m => m.IsAvailable)
+                    <span class="lbl"> Hiển thị</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Danh mục </label>
+
+
+        <div class="col-xs-10 col-sm-3">
+            <select id="ddlCategory" name="ddlCategory" class="chosen-select form-control">
+                <option value="">-- Danh mục --</option>
+                @foreach (var item in Model.listItem)
+                {
+                    <option @(item.Value == Model.CategoryID ? "selected='selected'" : "") value="@item.Value">@item.Text</option>
+                }
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group hidden">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Nhà sản xuất </label>
+
+
+        <div class="col-xs-10 col-sm-3">
+            <select id="ddlOrigin" name="ddlOrigin" class="chosen-select form-control">
+                <option value="">-- Nhà sản xuất --</option>
+                @foreach (var item in Model.listOrigin)
+                {
+                    <option @(item.Value == Model.OriginID ? "selected='selected'" : "") value="@item.Value">@item.Text</option>
+                }
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group hidden">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Thứ tự </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Priority, Model.Priority.GetValueOrDefault().ToString(), new { @type = "number", @class = "col-xs-10 col-sm-5", @placeholder = "Thứ tự" })
+            @*<input type="text" id="form-field-1" placeholder="Thứ tự" class="col-xs-10 col-sm-5" />*@
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Giá sản phẩm </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Price, string.Format("{0:##,###.##}", Model.Price.GetValueOrDefault()), new { @type = "text", @class = "col-xs-10 col-sm-5", @placeholder = "Giá sản phẩm" })
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Giá sản phẩm cũ</label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.SavePrice, string.Format("{0:##,###.##}", Model.SavePrice.GetValueOrDefault()), new { @type = "text", @class = "col-xs-10 col-sm-5", @placeholder = "Giá sản phẩm cũ" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Tag </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Tag, Model.Tag, new { @type = "text", @class = "col-xs-10 col-sm-5", @placeholder = "Tag" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Meta Title </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.MetaTittle, Model.MetaTittle, new { @type = "text", @class = "col-xs-10 col-sm-5", @placeholder = "Meta Title" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Meta Description </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.MetaDescription, Model.MetaDescription, new { @type = "text", @class = "col-xs-10 col-sm-5", @placeholder = "Meta Description" })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Tiêu đề </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.ProductName, Model.ProductName, new { @type = "text", @class = "col-xs-10 col-sm-12", @placeholder = "Tiêu đề" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Mô tả </label>
+
+        <div class="col-sm-10">
+            @Html.TextAreaFor(m => m.Description, 3, 10, new { @type = "text", @class = "txtDes col-xs-10 col-sm-12", @placeholder = "Mô tả" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Nội dung </label>
+
+        <div class="col-sm-10">
+            @Html.TextAreaFor(m => m.Content, 3, 10, new { @type = "text", @class = "txtContent col-xs-10 col-sm-12", @placeholder = "Nội dung" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"></label>
+        @*<span class="btn btn-info btnsm"><input  type="submit" class="iconsub" value="Submit" /></span>*@
+        <button class="btn btn-info" type="submit">
+            <i class="ace-icon fa fa-check bigger-110"></i>
+            @if (Model.ProductID == 0)
+            { @Html.Raw("Thêm mới");
+            }
+            else
+            { @Html.Raw("Cập nhật");
+            }
+        </button>
+
+
+
+
+        <a class="btn" href="@Url.Action("Introduce")">
+            <i class="ace-icon fa fa-undo bigger-110"></i>
+            Reset
+        </a>
+    </div>
+}
+
+@section MyScripts {
+    <script src="@Url.Content("~/Areas/admin/Content/assets/tinymce/tinymce.min.js")"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#id-input-file-2').ace_file_input({
+                no_file: 'Chưa chọn file ...',
+                btn_choose: 'Chọn',
+                btn_change: 'Thay đổi',
+                droppable: false,
+                onchange: null,
+                thumbnail: false //| true | large
+                //whitelist:'gif|png|jpg|jpeg'
+                //blacklist:'exe|php'
+                //onchange:''
+                //
+            });
+            tinymce.init({
+                selector: ".txtDes",  // change this value according to your HTML
+                plugins: [
+                  'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                  'searchreplace wordcount visualblocks visualchars code fullscreen',
+                  'insertdatetime media nonbreaking save table contextmenu directionality',
+                  'emoticons template paste textcolor colorpicker textpattern image imagetools codesample toc'
+                ],
+                menubar: "insert",
+                toolbar: "template link | preview | codesample | code | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
+                //toolbar2: 'print preview media | forecolor backcolor emoticons | codesample | code',
+                templates: "@Url.Action("getTemplateHTML", "Manager")"
+            });
+            tinymce.init({
+                selector: '.txtContent',  // change this value according to your HTML
+                height: 500,
+                theme: 'modern',
+                language: 'vi_VN',
+                plugins: [
+                  'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                  'searchreplace wordcount visualblocks visualchars code fullscreen',
+                  'insertdatetime media nonbreaking save table contextmenu directionality',
+                  'emoticons template paste textcolor colorpicker textpattern image imagetools codesample toc'
+                ],
+                toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                toolbar2: 'print preview media | forecolor backcolor emoticons | codesample | code',
+                //            image_list: [
+                //{ title: '<img src="http://genknews.genkcdn.vn/2016/photo-0-1472270355387.jpg">', value: 'http://genknews.genkcdn.vn/2016/photo-0-1472270355387.jpg' },
+                //{title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'}
+                //            ],
+                //image_prepend_url: "http://localhost:58387/data/products/",
+                templates: "@Url.Action("getTemplateHTML", "Manager")",
+                image_caption: true,
+                images_upload_url: '@Url.Action("UploadImage")',
+                images_reuse_filename: true,
+                automatic_uploads: true,
+                //images_upload_base_path: '/data/products',
+                images_upload_credentials: true,
+                file_picker_callback: function (cb, value, meta) {
+                    var input = document.createElement('input');
+                    input.setAttribute('type', 'file');
+                    input.setAttribute('accept', 'image/*');
+
+                    // Note: In modern browsers input[type="file"] is functional without
+                    // even adding it to the DOM, but that might not be the case in some older
+                    // or quirky browsers like IE, so you might want to add it to the DOM
+                    // just in case, and visually hide it. And do not forget do remove it
+                    // once you do not need it anymore.
+                    var file_name;
+                    input.onchange = function () {
+                        var file = this.files[0];
+
+                        // Note: Now we need to register the blob in TinyMCEs image blob
+                        // registry. In the next release this part hopefully won't be
+                        // necessary, as we are looking to handle it internally.
+                        var id = 'pro_img' + (new Date()).getTime();
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        var blobInfo = blobCache.create(id, file);
+                        blobCache.add(blobInfo);
+                        // call the callback and populate the Title field with the file name
+                        cb(blobInfo.blobUri(), { title: file.name });
+                    };
+
+                    input.click();
+                },
+
+            });
+
+        });
+    </script>
+}
+

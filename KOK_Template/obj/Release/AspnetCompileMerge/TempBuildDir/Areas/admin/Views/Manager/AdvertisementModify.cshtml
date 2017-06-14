@@ -1,0 +1,130 @@
+﻿@model TranLe_pj.Models.AdsBannerModel
+@using TranLe_pj.Areas.admin.GetData
+@{
+    Banner _banner = new Banner();
+    var ListAdsCategory = _banner.GetAllAdsCategory();
+    ViewBag.Title = "Chi tiết Banner Quảng Cáo - KOK Admin";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+<title>@ViewBag.Title</title>
+
+<div class="page-header">
+    <h1>
+        <a href="@Url.Action(ViewBag.ActionReturn)">Danh sách bài viết</a>
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Thông tin bài viết
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+@using (Html.BeginForm("SaveDataAdsvertisement", "Manager", FormMethod.Post, new { id = "myForm", @class = "form-horizontal", @role = "form", @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.AdsBannerID);
+    <input type="hidden" id="hdnActionReturn" name="hdnActionReturn" value="@ViewBag.ActionReturn" />
+    <input id="ImageOld" name="ImageOld" type="hidden" value="@Model.FileName" />
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Ảnh đại diện </label>
+        <!-- #section:custom/file-input -->
+        <div class="col-xs-10 col-sm-3">
+            <input type="file" id="id-input-file-2" name="UploadImage" />
+            <div style="text-align: center;">
+                <span class="alert-danger">Kích thước yêu cầu: 880px x 416px</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Vị trí </label>
+
+
+        <div class="col-xs-10 col-sm-3">
+            <select id="ddlAdsCategory" name="ddlAdsCategory" class="chosen-select form-control">
+                <option value="">-- Vị trí --</option>
+                @foreach (var item in ListAdsCategory)
+                {
+                    <option @(item.AdsCategoryID == Model.AdsCategoryID ? "selected='selected'" : "") value="@item.AdsCategoryID">@item.AdsCategoryName</option>
+                }
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Thuộc tính </label>
+
+        <div class="col-sm-10 checkbox-group">
+            <div class="checkbox pull-left">
+                <label>
+                    @*<input name="form-field-checkbox" class="ace" type="checkbox" /*@
+                    @Html.CheckBoxFor(m => m.IsAvailable)
+                    <span class="lbl"> Hiển thị</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group hidden">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Thứ tự </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Priority, Model.Priority.GetValueOrDefault().ToString(), new { @type = "number", @class = "col-xs-10 col-sm-5", @placeholder = "Thứ tự" })
+            @*<input type="text" id="form-field-1" placeholder="Thứ tự" class="col-xs-10 col-sm-5" />*@
+        </div>
+    </div>
+    
+    <hr />
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Công ty </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.CompanyName, Model.CompanyName, new { @type = "text", @class = "col-xs-10 col-sm-12", @placeholder = "Công ty" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Website </label>
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Website, Model.Website, new { @type = "text", @class = "col-xs-10 col-sm-12", @placeholder = "Website" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="form-field-1"></label>
+        @*<span class="btn btn-info btnsm"><input  type="submit" class="iconsub" value="Submit" /></span>*@
+        <button class="btn btn-info" type="submit">
+            <i class="ace-icon fa fa-check bigger-110"></i>
+            @if (Model.AdsBannerID == 0)
+            { @Html.Raw("Thêm mới");
+            }
+            else
+            { @Html.Raw("Cập nhật");
+            }
+        </button>
+
+
+
+
+        <a class="btn" href="@Url.Action("Advertisement")">
+            <i class="ace-icon fa fa-undo bigger-110"></i>
+            Reset
+        </a>
+    </div>
+}
+
+@section MyScripts {
+    <script src="@Url.Content("~/Areas/admin/Content/assets/tinymce/tinymce.min.js")"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#id-input-file-2').ace_file_input({
+                no_file: 'Chưa chọn file ...',
+                btn_choose: 'Chọn',
+                btn_change: 'Thay đổi',
+                droppable: false,
+                onchange: null,
+                thumbnail: false //| true | large
+                //whitelist:'gif|png|jpg|jpeg'
+                //blacklist:'exe|php'
+                //onchange:''
+                //
+            });
+        });
+    </script>
+}
+

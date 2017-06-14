@@ -1,0 +1,167 @@
+﻿@model List<TranLe_pj.Models.PostCategory>
+@using TranLe_pj.Areas.admin.GetData
+@using TranLe_pj.Models
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Post _post = new Post();
+    var _listCateProduct = _post.getListCategoryByParent((int)ViewBag.ProductCateID);
+    var _listNewsEvent = _post.getAllByCate((int)ViewBag.NewsCateID).Where(m=>m.IsAvailable == true);
+    Banner _banner = new Banner();
+    var listBannerTop = _banner.GetAllAdsBannerByCategory(1).Where(m => m.IsAvailable == true).ToList();
+    var listBannerContent = _banner.GetAllAdsBannerByCategory(4).Where(m=>m.IsAvailable == true).ToList();
+    //SEO Tag
+    ViewBag.Title = "Mai Trung - Trading Services Technology.,LTD";
+}
+<div class="container">
+    <div class="banner-main">
+        <div class="slide-df">
+            <div id="banner">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        @{
+                            if (listBannerTop.Count > 0)
+                            {
+                                foreach (var item in listBannerTop)
+                                {
+                                    <div class="item">
+                                        <a href="@item.Website">
+                                            <img src="@Url.Content("~/data/ads/"+item.FileName)" alt="" />
+                                        </a>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-news">
+            <div class="title-main news-title">
+                <h1>KHUYẾN MÃI</h1>
+                <div class="view-more"><a href="@Url.Action("Index","Events")">Xem thêm</a></div>
+            </div>
+            <div class="news-df">
+                @foreach (var item in _listNewsEvent.Where(m=>m.IsShowOnHomePage == true).Take(3))
+                {
+                    <div class="newsbox">
+                        <div class="box-img">
+                            <a href="@Url.Action("Detail","Events", new { id = item.ProductID})">
+                                <img src="@Url.Content("~/data/products/thumbs/"+item.ImageName)" alt="@item.ProductName" title="@item.ProductName" />
+                            </a>
+                        </div>
+                        <div class="box-name"><a href="@Url.Action("Detail","Events", new { id = item.ProductID})">@item.ProductName</a></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="wrapper-main">
+        
+        @foreach (var item in _listCateProduct)
+        {
+            if (_listCateProduct.IndexOf(item) == 1)
+            {
+                <div class="wrapper-box">
+                    @{
+                        if (listBannerContent.Count > 0)
+                        {
+                            foreach (var o in listBannerContent)
+                            {
+                                <div class="banner-img">
+                                    <a href="@o.Website">
+                                        <img src="@Url.Content("~/data/ads/"+o.FileName)" alt="" />
+                                    </a>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            }
+            <div class="wrapper-box">
+                <div class="title-main pc">
+                    <h1>@item.Text</h1>
+                    <div class="list-menu">
+                        <ul>
+                            @{
+                                var listOrigin = _post.getListOrigin(item.Value);
+                                foreach (var iOrigin in listOrigin)
+                                {
+                                    <li><a href="@Url.Action("Index", "Products", new { url = TLLib.Common.ConvertTitle(_post.getNameCategory(item.Value)), id = item.Value ,idcate = item.Value, origin = iOrigin.Value})">@iOrigin.Text</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="view-more"><a href="@Url.Action("Index","Products", new { url = TLLib.Common.ConvertTitle(_post.getNameCategory(item.Value)), id = item.Value})">Xem thêm</a></div>
+                </div>
+                <div class="wrapper-info">
+                    @{
+                        var listProduct = _post.getAllByCate(item.Value).Where(m=>m.IsAvailable == true && m.IsShowOnHomePage == true).OrderByDescending(m => m.CreateDate).Take(8).ToList();
+                        foreach (var iPro in listProduct)
+                        {
+                            <div class="info">
+                                <div class="infobox">
+                                    <a href="@Url.Action("Detail", "Products", new { url = TLLib.Common.ConvertTitle(iPro.ProductName), id = iPro.ProductID})">
+                                        <div class="info-img">
+                                            <img src="@Url.Content("~/data/products/thumbs/"+iPro.ImageName)" alt="@iPro.ProductName" title="@iPro.ProductName" />
+                                        </div>
+                                        <div class="info-content">
+                                            <h1>@iPro.ProductName</h1>
+                                            @if (iPro.Price == 0.0m)
+                                            {
+                                                <span>Liên Hệ<span></span></span>
+                                            }
+                                            else
+                                            {
+                                                <span>@string.Format("{0:##,###.##}", iPro.Price.GetValueOrDefault())<span>đ</span></span>
+                                                <i>@string.Format("{0:##,###.##}", iPro.SavePrice.GetValueOrDefault())đ</i>
+                                            }
+                                        </div>
+                                        <div class="icon-status">
+                                            @{
+                                                if (iPro.IsHot)
+                                                {
+                                                    <div class="icon-hot">
+                                                        <span>Hot</span>
+                                                    </div>
+                                                }
+                                                if (iPro.IsNew)
+                                                {
+                                                    <div class="icon-new">
+                                                        <span>New</span>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                        <div class="info-hover">
+                                            <h1>@iPro.ProductName</h1>
+                                            @if (iPro.Price == 0.0m)
+                                            {
+                                                <span>Liên Hệ<span></span></span>
+                                            }
+                                            else
+                                            {
+                                                <span>@string.Format("{0:##,###.##}", iPro.Price.GetValueOrDefault())<span>đ</span></span>
+                                            }
+                                            <ul class="info-param">
+                                                @Html.Raw(iPro.Description)
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+                <div class="clr"></div>
+            </div>
+        }
+
+    </div>
+</div>

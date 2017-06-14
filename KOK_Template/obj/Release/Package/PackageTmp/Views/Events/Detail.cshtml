@@ -1,0 +1,50 @@
+﻿@model TranLe_pj.Models.PostModel
+@using TranLe_pj.Areas.admin.GetData
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Post _post = new Post();
+    //SEO Tag
+    ViewBag.Title = !string.IsNullOrEmpty(Model.MetaTittle) ? Model.MetaTittle : Model.ProductName + " - Mai Trung - Trading Services Technology.,LTD";
+}
+<div class="container">
+    <div class="about-us">
+        <div id="site" class="corner">
+            <a id="A1" href="~/"><span>Trang chủ</span></a><span class="fa fa-caret-right"></span><a href="@Url.Action("Index","Events")"> @_post.getNameCategory(Model.CategoryID.GetValueOrDefault())</a><span> @Model.ProductName</span>
+        </div>
+        <div class="news-bg">
+            <h1> @Model.ProductName</h1>
+            <span><i class="fa fa-clock-o"></i> <b><i><u>@Model.CreateDate.Value.ToLongDateString() - @Model.CreateDate.Value.ToShortTimeString()</u></i></b></span>
+            <br /><br />
+            @Html.Raw(Model.Content)
+        </div>
+        <div class="product-all">
+            <div class="title-box"><h1>Tin tức liên quan</h1></div>
+
+            <div id="productSlider" class="owl-carousel pro-main">
+                @{
+                    var listProductSame = _post.getAllByCate(Model.CategoryID.Value).Take(8).Where(m => m.ProductID != Model.ProductID).ToList();
+                    foreach (var item in listProductSame)
+                    {
+                        <div class="item">
+                            <div class="info">
+                                <div class="infobox">
+                                    <a href="@Url.Action("Detail","Events", new { url = TLLib.Common.ConvertTitle(item.ProductName), id = item.ProductID})">
+                                        <div class="info-img">
+                                            <img src="@Url.Content("~/data/products/"+item.ImageName)" alt="@item.ProductName" title="@item.ProductName" />
+                                        </div>
+                                        <div class="info-content">
+                                            <ul class="info-param">
+                                                @Html.Raw(item.Description)
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

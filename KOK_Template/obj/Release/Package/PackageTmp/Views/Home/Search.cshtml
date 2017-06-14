@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+
+//register call back once custom search result gets load
+(function () {
+window.__gcse = {
+callback: searchCallback
+};
+function searchCallback() {
+$('#gsc-i-id1').focus();
+ $('#gsc-i-id1').val('@ViewBag.SearchString');
+ $(".gsc-search-button").trigger('click');
+ }
+    var cx = '004857439659628038307:ll3epqilc9y';
+var gcse = document.createElement('script');
+gcse.type = 'text/javascript';gcse.async = true;
+gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//cse.google.com/cse.js?cx=' + cx;
+var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gcse, s); })();
+</script>
+<gcse:search>
+</gcse:search>
+
+@*<gcse:search resultsUrl="search-result.aspx" newWindow="true" queryParameterName="kw"></gcse:search>*@
+

@@ -1,0 +1,256 @@
+﻿@model List<TranLe_pj.Models.PostImage>
+@{
+    ViewBag.Title = "Danh sách hình ảnh";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="@Url.Content("~/Areas/admin/Content/assets/css/bootstrap.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Areas/admin/Content/assets/css/font-awesome.css")" />
+
+    <!-- page specific plugin styles -->
+    <!-- text fonts -->
+    <link rel="stylesheet" href="@Url.Content("~/Areas/admin/Content/assets/css/ace-fonts.css")" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="@Url.Content("~/Areas/admin/Content/assets/css/ace.css")" class="ace-main-stylesheet" id="main-ace-style" />
+    <!--site styles-->
+    <link rel="stylesheet" href="@Url.Content("~/Areas/admin/Content/Site.css")" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <title>@ViewBag.Title</title>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace-extra.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/js-admin.js")"></script>
+</head>
+<body>
+    <div class="main-container" id="main-container">
+        <div class="main-content">
+            <div class="main-content-inner">
+                <div class="page-content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- PAGE CONTENT BEGINS -->
+                            <div>
+                                <div class="table-header">
+                                    DANH SÁCH HÌNH ẢNH
+                                </div>
+                                @using (Html.BeginForm("SaveAlbum", "Manager", FormMethod.Post, new { id = "myForm", @class = "form-horizontal", @role = "form", @enctype = "multipart/form-data" }))
+                                {
+                                    <input id="hdnProductID" name="hdnProductID" type="hidden" value="@ViewBag.ID" />
+                                    <div class="form-group">
+                                        <span class="alert-danger">@TempData["Msg"]</span>
+                                    </div>
+                                    <div class="form-group">
+                                        @*<label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>*@
+                                        <!-- #section:custom/file-input -->
+                                        <div class="col-xs-12 col-sm-12">
+                                            <input type="file" id="id-input-file-2" name="UploadImage" multiple />
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="text-align: center;">
+                                        <span class="alert-danger">Kích thước yêu cầu: 800px x 820px</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1"></label>
+                                        <button style="width:100%" class="btn btn-info" type="submit">
+                                            <i class="ace-icon fa fa-check bigger-110"></i>
+                                            TẢI LÊN
+                                        </button>
+                                    </div>
+                                }
+
+                                <div class="clr"></div>
+                                <div class="form-group pull-left">
+                                    <ul class="ace-thumbnails clearfix">
+                                        <!-- /section:pages/gallery -->
+                                        <!-- #section:pages/gallery.caption -->
+                                        @foreach (var item in Model)
+                                        {
+                                            <li>
+                                                <a href="@Url.Content("~/data/products/album/"+item.ImageName)" data-rel="colorbox">
+                                                    <img width="150" height="150" alt="150x150" src="@Url.Content("~/data/products/album/"+item.ImageName)" />
+                                                    <div class="text">
+                                                        <div class="inner"><!--Text Caption--></div>
+                                                    </div>
+                                                </a>
+
+                                                <div class="tools tools-bottom">
+                                                    @*<a href="#">
+                                                            <i class="ace-icon fa fa-link"></i>
+                                                        </a>
+
+                                                        <a href="#">
+                                                            <i class="ace-icon fa fa-paperclip"></i>
+                                                        </a>
+
+                                                        <a href="#">
+                                                            <i class="ace-icon fa fa-pencil"></i>
+                                                        </a>*@
+
+                                                    <a href="@Url.Action("DeleteImageAlbum","Manager",new { id = item.ProductImageID, image = item.ImageName, pro_id = item.ProductID})">
+                                                        <i class="ace-icon fa fa-times red"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div><!-- PAGE CONTENT ENDS -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+
+                </div>
+            </div><!-- /.row -->
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='@Url.Content("~/Areas/admin/Content/assets/js/jquery.js")'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ('ontouchstart' in document.documentElement) document.write("<script src='@Url.Content("~/Areas/admin/Content/assets/js/jquery.mobile.custom.js")'>" + "<" + "/script>");
+    </script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/bootstrap.js")"></script>
+
+    <!-- page specific plugin scripts -->
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/jquery.colorbox.js")"></script>
+
+    <!-- ace scripts -->
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.scroller.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.colorpicker.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.fileinput.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.typeahead.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.wysiwyg.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.spinner.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.treeview.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.wizard.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/elements.aside.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.ajax-content.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.touch-drag.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.sidebar.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.sidebar-scroll-1.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.submenu-hover.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.widget-box.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.settings.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.settings-rtl.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.settings-skin.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.widget-on-reload.js")"></script>
+    <script src="@Url.Content("~/Areas/admin/Content/assets/js/ace/ace.searchbox-autocomplete.js")"></script>
+
+    <!-- inline scripts related to this page -->
+    <script type="text/javascript">
+        jQuery(function ($) {
+            var whitelist_ext = ["jpeg", "jpg", "png", "gif", "bmp"];
+            var whitelist_mime = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/bmp"];
+            var file_input = $('#id-input-file-2');
+            file_input.ace_file_input({
+                style: 'well',
+                btn_choose: 'Drop files here or click to choose',
+                btn_change: null,
+                no_icon: 'ace-icon fa fa-cloud-upload',
+                droppable: true,
+                thumbnail: 'large'//'small'//large | fit
+                //,icon_remove:null//set null, to hide remove/reset button
+                /**,before_change:function(files, dropped) {
+                    //Check an example below
+                    //or examples/file-upload.html
+                    return true;
+                }*/
+                /**,before_remove : function() {
+                    return true;
+                }*/
+					,
+                preview_error: function (filename, error_code) {
+                    //name of the file that failed
+                    //error_code values
+                    //1 = 'FILE_LOAD_FAILED',
+                    //2 = 'IMAGE_LOAD_FAILED',
+                    //3 = 'THUMBNAIL_FAILED'
+                    //alert(error_code);
+                }
+
+            }).on('change', function () {
+                //console.log($(this).data('ace_input_files'));
+                //console.log($(this).data('ace_input_method'));
+            }).ace_file_input('update_settings',
+					{
+					    'allowExt': whitelist_ext,
+					    'allowMime': whitelist_mime
+					});
+
+            file_input.ace_file_input('reset_input');
+
+            file_input
+            .off('file.error.ace')
+            .on('file.error.ace', function (e, info) {
+                //console.log(info.file_count);//number of selected files
+                //console.log(info.invalid_count);//number of invalid files
+                //console.log(info.error_list);//a list of errors in the following format
+
+                //info.error_count['ext']
+                //info.error_count['mime']
+                //info.error_count['size']
+
+                //info.error_list['ext']  = [list of file names with invalid extension]
+                //info.error_list['mime'] = [list of file names with invalid mimetype]
+                //info.error_list['size'] = [list of file names with invalid size]
+
+
+                /**
+                if( !info.dropped ) {
+                    //perhapse reset file field if files have been selected, and there are invalid files among them
+                    //when files are dropped, only valid files will be added to our file array
+                    e.preventDefault();//it will rest input
+                }
+                */
+
+
+                //if files have been selected (not dropped), you can choose to reset input
+                //because browser keeps all selected files anyway and this cannot be changed
+                //we can only reset file field to become empty again
+                //on any case you still should check files with your server side script
+                //because any arbitrary file can be uploaded by user and it's not safe to rely on browser-side measures
+            });
+            var $overflow = '';
+            var colorbox_params = {
+                rel: 'colorbox',
+                reposition: true,
+                scalePhotos: true,
+                scrolling: false,
+                previous: '<i class="ace-icon fa fa-arrow-left"></i>',
+                next: '<i class="ace-icon fa fa-arrow-right"></i>',
+                close: '&times;',
+                current: '{current} of {total}',
+                maxWidth: '100%',
+                maxHeight: '100%',
+                onOpen: function () {
+                    $overflow = document.body.style.overflow;
+                    document.body.style.overflow = 'hidden';
+                },
+                onClosed: function () {
+                    document.body.style.overflow = $overflow;
+                },
+                onComplete: function () {
+                    $.colorbox.resize();
+                }
+            };
+
+            $('.ace-thumbnails [data-rel="colorbox"]').colorbox(colorbox_params);
+            $("#cboxLoadingGraphic").html("<i class='ace-icon fa fa-spinner orange fa-spin'></i>");//let's add a custom loading icon
+
+
+            $(document).one('ajaxloadstart.page', function (e) {
+                $('#colorbox, #cboxOverlay').remove();
+            });
+        })
+    </script>
+</body>
+
+</html>

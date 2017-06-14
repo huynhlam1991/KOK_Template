@@ -1,0 +1,800 @@
+﻿/*==========================site styles======================*/
+body {
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: 'SanFranciscoDisplay-Heavy';
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.clr {
+    clear: both;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+a:link, a:visited {
+    outline: none;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+a:hover {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+    fieldset, a img, img {
+        border: none;
+    }
+
+:focus {
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+hr {
+    display: none;
+}
+
+.haeder-main {
+    line-height: 45px;
+    padding: 0 10px;
+}
+
+.header-right {
+    display: inline-block;
+    float: right;
+}
+
+.thongbao, .quantri, .dangxuat {
+    border-left: 2px solid #e0e0e0;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.thongbao {
+    position: relative;
+    margin: 0 30px;
+    padding-right: 0;
+}
+
+    .thongbao .numbers {
+        position: absolute;
+    }
+
+        .thongbao .numbers span {
+            background: #000 none repeat scroll 0 0;
+            border-radius: 50%;
+            color: red;
+            font-size: 13px;
+            height: 30px;
+            padding: 5px 10px;
+            width: 30px;
+        }
+
+.title-haed > span {
+    font-size: 20px;
+}
+
+.thongbao img {
+    height: 30px;
+    width: 25px;
+}
+
+.thongbao .numbers {
+    position: absolute;
+    right: -20px;
+    top: -7px;
+}
+
+.quantri {
+    position: relative;
+    padding-left: 50px;
+}
+
+    .quantri::before {
+        position: absolute;
+        content: "";
+        background: url("../images/icon2.png") no-repeat;
+        width: 30px;
+        height: 30px;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+.title-haed {
+    display: inline-block;
+}
+
+.aside-left {
+    background: #23262d;
+    display: inline-block;
+    width: 200px;
+    height: calc(100vh - 46px);
+}
+
+.menu a {
+    color: #fff;
+    display: block;
+    line-height: 50px;
+    padding: 0 20px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.menu li:hover a, .menu li:focus a, .menu li.active a {
+    background: #30333c;
+    color: #fbb040;
+}
+
+.aside-right {
+    background: #e0e0e0 none repeat scroll 0 0;
+    display: inline-block;
+    padding: 20px 15px;
+    vertical-align: top;
+    width: calc(100% - 204px);
+}
+
+.btn1, .btn2, .btn3, .btn4, .thang, .select-box {
+    display: inline-block;
+}
+
+    .thang select {
+        background: #e0e0e0 none repeat scroll 0 0;
+        border: 1px solid #ccc;
+        height: 37px;
+        width: 100px;
+    }
+
+    .select-box select {
+        background: #e0e0e0 none repeat scroll 0 0;
+        border: 1px solid #ccc;
+        height: 30px;
+        width: 150px;
+    }
+    .btn1 a {
+        padding: 11px 15px;
+        background: #62bc54;
+        color: #fff;
+        font-size: 15px;
+    }
+    .btn1 input {
+        padding: 0px 15px;
+        background: #62bc54;
+        color: #fff;
+        font-size: 15px;
+        border: none;
+    }
+
+    .btn2 a {
+        padding: 11px 10px;
+        background: #fbb040;
+        color: #fff;
+        font-size: 15px;
+    }
+
+    .btn3 a {
+        padding: 11px 20px;
+        background: #ed1c24;
+        color: #fff;
+        font-size: 15px;
+    }
+
+    .btn4 a {
+        padding: 11px 25px;
+        background: blue;
+        color: #fff;
+        font-size: 15px;
+    }
+
+.btn-table {
+    background: #fff none repeat scroll 0 0;
+    line-height: 38px;
+    padding: 10px;
+}
+
+#table-kh {
+    background: #fff;
+    margin-top: 10px;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+    padding: 10px;
+}
+
+.wrapper-info {
+    background: #e0e0e0 none repeat scroll 0 0;
+}
+
+.huyhd {
+    background: #ed1c24;
+    color: #fff;
+    display: block;
+    font-size: 13px;
+    padding: 8px 2px;
+    text-align: center;
+}
+
+.choph {
+    background: #fdb515;
+    color: #fff;
+    display: block;
+    font-size: 13px;
+    padding: 8px 2px;
+    text-align: center;
+}
+
+.daky {
+    background: #426fb6;
+    color: #fff;
+    display: block;
+    font-size: 13px;
+    padding: 8px 2px;
+    text-align: center;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0 3px;
+}
+
+.info-icon {
+    background: #767576 none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #fff;
+    padding: 2px 8px;
+}
+
+.input-box {
+    margin: 0 10px;
+}
+
+.info-left {
+    background: #fff;
+    padding: 20px 30px;
+    width: 580px;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 20px;
+}
+
+    .info-left .wrapper-input, .input-50 {
+        column-count: 2;
+        -moz-column-count: 2;
+    }
+
+    .info-left h1, .info-right h1 {
+        color: #48484a;
+        font-size: 20px;
+    }
+
+.input-text input {
+    background: #e0e0e0 none repeat scroll 0 0;
+    border: medium none;
+    height: 30px;
+    padding: 5px;
+    width: 100%;
+}
+
+.input-lable {
+    font-size: 15px;
+    padding: 5px 0;
+}
+
+.input-select select {
+    background: #e0e0e0 none repeat scroll 0 0;
+    border: medium none;
+    height: 30px;
+    width: 100%;
+}
+
+.input-area textarea {
+    background: #e0e0e0 none repeat scroll 0 0;
+    border: medium none;
+    width: 100%;
+    height: 93px;
+}
+
+.info-right {
+    background: #fff none repeat scroll 0 0;
+    display: inline-block;
+    margin-left: 30px;
+    padding: 20px 30px;
+    width: 415px;
+    margin-bottom: 20px;
+}
+
+.khachhang {
+    display: inline-block;
+    float: right;
+}
+
+
+.tai-hd, .ma-hd, .kh-box, .ngayduyet, .ngaygiao-box, .nhanvien {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ma-hd, .kh-box, .ngayduyet, .ngaygiao-box, .nhanvien {
+    color: #767576;
+    font-size: 12px;
+    margin: 0 3px;
+    padding: 0 20px;
+    background: #fff;
+}
+
+.nhanvien {
+    padding: 0 19.4px;
+}
+
+.tai-hd a {
+    color: #fff;
+}
+
+.tai-hd {
+    background: #fbb040 none repeat scroll 0 0;
+    padding: 10px 10px 10px 50px;
+    position: relative;
+    vertical-align: middle;
+}
+
+    .tai-hd::before {
+        position: absolute;
+        content: "";
+        background: url("../images/icon3.png") no-repeat;
+        width: 30px;
+        height: 30px;
+        left: 10px;
+        top: 60%;
+        background-size: 100%;
+        transform: translateY(-50%);
+    }
+
+.ma-hd span, .kh-box span, .ngayduyet span, .ngaygiao-box span, .nhanvien span {
+    display: block;
+    color: #231f20;
+    font-size: 15px;
+}
+
+.sanpham-img {
+    background: #fff none repeat scroll 0 0;
+    margin-top: 20px;
+}
+
+    .sanpham-img img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+.sanxuat-main {
+    margin: 30px 0;
+}
+
+    .sanxuat-main h1 {
+        color: #48484a;
+        font-size: 20px;
+    }
+
+.box-left {
+    background: #fff none repeat scroll 0 0;
+    margin: 20px 0;
+    width: 600px;
+    display: inline-block;
+}
+
+.box-input {
+    border-left: 1px solid #ccc;
+    display: inline-block;
+    padding: 25px 15px;
+    width: 116px;
+}
+
+    .box-input:first-child {
+        border-left: none;
+    }
+
+.inputtext input {
+    width: 100%;
+}
+
+.inputselect select {
+    height: 30px;
+    width: 100%;
+}
+
+.inputlable {
+    color: #767576;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.box-right {
+    background: #fff none repeat scroll 0 0;
+    display: inline-block;
+    margin: 20px 0 20px 20px;
+    padding: 10px 20px;
+    vertical-align: top;
+    width: calc(100% - 624px);
+}
+
+.check-box {
+    display: inline-block;
+    width: 100px;
+}
+
+.note {
+    display: inline-block;
+    width: calc(100% - 110px);
+}
+
+.inputarea textarea {
+    background: #ccc none repeat scroll 0 0;
+    border: medium none;
+    padding: 3px;
+    width: 100%;
+}
+
+.box-right h2 {
+    color: #767576;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.table-size {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+    .table-size input {
+        width: 70px;
+    }
+
+    .table-size th {
+        text-align: center;
+    }
+
+        .table-size th:first-child {
+            font-size: 0;
+        }
+
+.table.table-size > thead > tr > th {
+    border-bottom: none;
+    border-left: 1px solid #ddd;
+}
+
+    .table.table-size > thead > tr > th:first-child {
+        border-left: none;
+    }
+
+.table.table-size > thead > tr > th, .table.table-size > tbody > tr > th, .table.table-size > tfoot > tr > th, .table.table-size > thead > tr > td, .table.table-size > tbody > tr > td, .table.table-size > tfoot > tr > td {
+    border-left: 1px solid #ddd;
+}
+
+    .table.table-size > thead > tr > th:first-child, .table.table-size > tbody > tr > th:first-child, .table.table-size > tfoot > tr > th:first-child, .table.table-size > thead > tr > td:first-child, .table.table-size > tbody > tr > td:first-child, .table.table-size > tfoot > tr > td:first-child {
+        border-left: none;
+    }
+
+.note-size > h2 {
+    color: #767576;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.size-ao {
+    display: inline-block;
+    width: 600px;
+}
+
+.note-size {
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 624px);
+}
+
+.box2 {
+    background: #fff none repeat scroll 0 0;
+    padding: 15px;
+}
+
+.box-info > h1 {
+    color: #000;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.note-text .inputarea textarea {
+    height: 95px;
+}
+
+.ui-datepicker-trigger {
+    background: #ccc none repeat scroll 0 0;
+    height: 29px;
+    margin: 0 0 2px 10px;
+    padding: 5px;
+    width: 36px;
+}
+
+.input-name {
+    margin-bottom: 10px;
+}
+
+    .input-name input {
+        color: #48484a;
+        font-size: 17px;
+        height: 35px;
+        background: #e0e0e0;
+        border: none;
+        padding: 3px 10px;
+        width: 100%;
+    }
+
+.datepicker.hasDatepicker {
+    width: 185px;
+}
+
+.box-info {
+    background: #fff none repeat scroll 0 0;
+    margin: 20px 0;
+    padding: 20px;
+    width: 49%;
+    display: inline-block;
+}
+
+    .box-info:last-child {
+        float: right;
+    }
+
+.input-name > textarea {
+    background: #e0e0e0 none repeat scroll 0 0;
+    border: medium none;
+    font-size: 17px;
+    padding: 3px 10px;
+    height: 125px;
+    width: 100%;
+}
+
+.input-info {
+    column-count: 2;
+    -moz-column-count: 2;
+}
+
+.tiendo-bg {
+    background: #fbb040 none repeat scroll 0 0;
+    padding: 20px;
+}
+
+.tiendo-hoanthanh .line {
+    background: #fff none repeat scroll 0 0;
+    height: 15px;
+    width: 150px;
+}
+
+.text {
+    color: #fff;
+    font-size: 17px;
+    margin: 10px 0;
+}
+
+.tiendo {
+    width: 160px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.icon > img {
+    height: 25px;
+    width: 25px;
+}
+
+.tiendo-danglam .line {
+    border: 2px solid #fff;
+    height: 15px;
+    width: 150px;
+    position: relative;
+}
+
+    .tiendo-danglam .line::before {
+        position: absolute;
+        content: "";
+        width: 50%;
+        background: #fff;
+        height: 13px;
+        left: 0;
+        top: 0;
+    }
+
+.tiendo-chualam .line {
+    border: 2px solid #fff;
+    height: 15px;
+    width: 150px;
+}
+
+.box4 h1 {
+    margin: 0 0 10px 30px;
+}
+
+.aside-box .ma-hd {
+    width: 200px;
+}
+
+.aside-box .kh-box, .aside-box .ngaygiao-box, .aside-box .nhanvien {
+    width: calc(45.33% - 204px);
+}
+
+.aside-box .nhanvien {
+    margin-right: 0;
+}
+
+.form-box {
+    margin: 15px 0;
+}
+
+.form-lable {
+    background: #fff none repeat scroll 0 0;
+    display: inline-block;
+    padding: 20px;
+    width: 200px;
+}
+
+.form-input {
+    background: #fff none repeat scroll 0 0;
+    display: inline-block;
+    float: right;
+    padding: 11px 20px 12px;
+    vertical-align: top;
+    width: calc(100% - 212px);
+}
+
+    .form-input input {
+        background: #e0e0e0 none repeat scroll 0 0;
+        border: medium none;
+        color: #48484a;
+        font-size: 17px;
+        height: 35px;
+        padding: 3px 10px;
+    }
+
+    .form-input textarea {
+        background: #e0e0e0 none repeat scroll 0 0;
+        border: medium none;
+        height: 35px;
+        margin-left: 20px;
+        padding: 3px 10px;
+        vertical-align: top;
+        width: calc(100% - 508px);
+    }
+
+    .form-input .datepicker.hasDatepicker {
+        width: 190px;
+        margin-left: 20px;
+    }
+
+        .form-input .datepicker.hasDatepicker:first-child {
+            margin-left: 0;
+        }
+
+.file_upload {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.text-input {
+    background: #e0e0e0 none repeat scroll 0 0;
+    display: inline-block;
+    line-height: 35px;
+    padding: 2px 20px;
+}
+
+.file_upload > input {
+    height: 39px;
+}
+
+.form-check > input {
+    height: auto;
+    margin-left: 20px;
+}
+
+.form-check {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 7px 0;
+}
+
+.form-btn {
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    width: 150px;
+    margin: 3px 0 2px;
+}
+
+    .form-btn > a {
+        display: block;
+    }
+
+.form-btn1 {
+    border: 1px solid #1a76bc;
+}
+
+    .form-btn1 > a {
+        color: #1a76bc;
+    }
+
+.form-btn2 > a {
+    color: #fff;
+}
+
+.form-btn2 {
+    background: #fbb040;
+    border: 1px solid #fbb040;
+    margin-left: 10px;
+}
+
+.form-btn3 {
+    border: 1px solid #ed1c24;
+    margin-left: 10px;
+}
+
+    .form-btn3 > a {
+        color: #ed1c24;
+    }
+
+.btn-main {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.luu {
+    background: #62bc54 none repeat scroll 0 0;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    padding: 5px 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+    .luu a {
+        color: #fff;
+        display: block;
+    }
+
+.huy {
+    background: #ed1c24 none repeat scroll 0 0;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    margin-left: 10px;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+    .huy a {
+        color: #fff;
+        display: block;
+    }

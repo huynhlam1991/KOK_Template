@@ -1,0 +1,47 @@
+﻿@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.woff') format('woff'),
+       url('../fonts/Roboto-Regular.ttf') format('truetype'),
+       url('../fonts/Roboto-Regular.svg#Roboto-Regular') format('svg');
+  src: url('../fonts/Roboto-Regular_0.eot');
+  src: url('../fonts/Roboto-Regular_0.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFUClearfaceBlack';
+  src: url('../fonts/SFUClearfaceBlack.woff') format('woff'),
+       url('../fonts/SFUClearfaceBlack.ttf') format('truetype'),
+       url('../fonts/SFUClearfaceBlack.svg#SFUClearfaceBlack') format('svg');
+  src: url('../fonts/SFUClearfaceBlack_3.TTF.eot');
+  src: url('../fonts/SFUClearfaceBlack_3.TTF.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

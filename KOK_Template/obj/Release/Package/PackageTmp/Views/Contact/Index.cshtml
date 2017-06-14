@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Liên hệ" + " - Mai Trung - Trading Services Technology.,LTD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+    <div id="site" class="corner">
+        <a id="A1" href="~/"><span>Trang chủ</span></a><span class="fa fa-caret-right"></span><span> Liên hệ</span>
+    </div>
+    <div id="mapshow">
+        @Html.Partial("partialMap")
+    </div>
+    <div class="contact-main">
+        <div class="wrapper-map">
+            <div class="contact-text">
+                <h1>Liên hệ chúng tôi</h1>
+                <p><span class="fa fa-map-marker"></span>136/8 Trần Phú, Phường 4, Quận 5,TP HCM</p>
+                <p><span class="fa fa-phone"></span>Điện thoại: 08. 38300144 - 62792606 - Fax : 08.38300144</p>
+                <p><span class="fa fa-envelope"></span><a href="mailto:maitrungcomputer@gmail.com">Email : maitrungcomputer@gmail.com</a></p>
+            </div>
+            @using (Html.BeginForm("SendMail", "Contact", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="wrap-send">
+                    <div class="contact-w">
+                        <div class="contact-input">
+                            <input id="txtName" name="txtName" class="contact-textbox" type="text" value="" placeholder="Họ Tên">
+                        </div>
+                        <div class="contact-input">
+                            <input id="txtAddress" name="txtAddress" class="contact-textbox" type="text" value="" placeholder="Địa chỉ">
+                        </div>
+                        <div class="contact-input">
+                            <input id="txtPhone" name="txtPhone" class="contact-textbox" type="text" value="" placeholder="Số điện thoại">
+                        </div>
+                        <div class="contact-input">
+                            <input id="txtEmail" name="txtEmail" class="contact-textbox" type="text" value="" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="contact-w">
+                        <div class="contact-input contactarea">
+                            <textarea id="Content" name="Content" placeholder="Ghi chú"></textarea>
+                        </div>
+                    </div>
+                    <div class="contact-button">
+                        <div class="contact-btn">
+                            <input class="button-btn" type="submit" value="Gửi thông tin">
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>

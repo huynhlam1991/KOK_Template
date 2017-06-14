@@ -1,0 +1,8 @@
+﻿Enable-migrations -ContextTypeName:"KOK_Template.DBContext.KOK_TemplateDBContext" -MigrationsDirectory:"Migrations\KOK_Template"
+Add-Migration -configuration KOK_Template.Migrations.Configuration 'Migration name'
+Update-Database -configuration KOK_Template.Migrations.Configuration -Verbose
+
+
+Enable-migrations -ContextTypeName:"KOK_Template.DBContext.IdentityDbContext" -MigrationsDirectory:"Migrations\Identity"
+Add-Migration -configuration KOK_Template.Migrations.Identity.Configuration 'Migration name'
+Update-Database -configuration KOK_Template.Migrations.Identity.Configuration -Verbose

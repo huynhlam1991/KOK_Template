@@ -1,0 +1,1574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02CFF3A7-17F3-4514-92B0-49393D9C0916}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KOK_Template</RootNamespace>
+    <AssemblyName>KOK_Template</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.DiskCache, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.Plugins.DiskCache.4.0.5\lib\net45\ImageResizer.Plugins.DiskCache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="TLLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\TLLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\admin\Content\template\" />
+    <Folder Include="Areas\admin\Models\" />
+    <Folder Include="Content\template\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Content\assets\tinymce\plugins\youtube\youtube.aspx.cs">
+      <DependentUpon>youtube.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\admin\Content\assets\tinymce\plugins\youtube\youtube.aspx.designer.cs">
+      <DependentUpon>youtube.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\admin\Controllers\BaseController.cs" />
+    <Compile Include="Common\ControlHelper.cs" />
+    <Compile Include="Common\CultureHelper.cs" />
+    <Compile Include="DBContext\Identity\IdentityDbContext.cs" />
+    <Compile Include="DBContext\Identity\SeedData.cs" />
+    <Compile Include="DBContext\KOK_Template\KOK_TemplateDBContext.cs" />
+    <Compile Include="Migrations\Identity\201706141645145_Init DB Identity.cs" />
+    <Compile Include="Migrations\Identity\201706141645145_Init DB Identity.Designer.cs">
+      <DependentUpon>201706141645145_Init DB Identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Identity\Configuration.cs" />
+    <Compile Include="Migrations\KOK_Template\201706141643517_Init DB Main.cs" />
+    <Compile Include="Migrations\KOK_Template\201706141643517_Init DB Main.Designer.cs">
+      <DependentUpon>201706141643517_Init DB Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\KOK_Template\Configuration.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\BaseEntityCategory.cs" />
+    <Compile Include="Models\BaseEntityCategoryContent.cs" />
+    <Compile Include="Models\BaseEntityContent.cs" />
+    <Compile Include="Models\Common.cs" />
+    <Compile Include="Models\FCKEditorFix.cs" />
+    <Compile Include="Models\Identity\IdentityModels.cs" />
+    <Compile Include="Models\Identity\Permission.cs" />
+    <Compile Include="Models\Identity\RolePermission.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KOK_Template\AddressBook\AddressBook.cs" />
+    <Compile Include="Models\KOK_Template\Article\Article.cs" />
+    <Compile Include="Models\KOK_Template\Article\ArticleCategory.cs" />
+    <Compile Include="Models\KOK_Template\Article\ArticleCategoryLocale.cs" />
+    <Compile Include="Models\KOK_Template\Article\ArticleLocale.cs" />
+    <Compile Include="Models\KOK_Template\Banner\AdsBanner.cs" />
+    <Compile Include="Models\KOK_Template\Banner\AdsCategory.cs" />
+    <Compile Include="Models\KOK_Template\Career\Career.cs" />
+    <Compile Include="Models\KOK_Template\Career\CareerCategory.cs" />
+    <Compile Include="Models\KOK_Template\Comment\Comment.cs" />
+    <Compile Include="Models\KOK_Template\Country\Country.cs" />
+    <Compile Include="Models\KOK_Template\Culture\Culture.cs" />
+    <Compile Include="Models\KOK_Template\DeliveryMethod\DeliveryMethod.cs" />
+    <Compile Include="Models\KOK_Template\District\District.cs" />
+    <Compile Include="Models\KOK_Template\Download\Download.cs" />
+    <Compile Include="Models\KOK_Template\Download\DownloadCategory.cs" />
+    <Compile Include="Models\KOK_Template\Manufacturer\Manufacturer.cs" />
+    <Compile Include="Models\KOK_Template\Menu\Menu.cs" />
+    <Compile Include="Models\KOK_Template\Menu\MenuPosition.cs" />
+    <Compile Include="Models\KOK_Template\Newsletter\Newsletter.cs" />
+    <Compile Include="Models\KOK_Template\Order\Order.cs" />
+    <Compile Include="Models\KOK_Template\Order\OrderDetail.cs" />
+    <Compile Include="Models\KOK_Template\Order\OrderStatus.cs" />
+    <Compile Include="Models\KOK_Template\Origin\Origin.cs" />
+    <Compile Include="Models\KOK_Template\Partner\Partner.cs" />
+    <Compile Include="Models\KOK_Template\Payment\PaymentMethod.cs" />
+    <Compile Include="Models\KOK_Template\Payment\PayStatus.cs" />
+    <Compile Include="Models\KOK_Template\PhotoAlbum\PhotoAlbum.cs" />
+    <Compile Include="Models\KOK_Template\PhotoAlbum\PhotoAlbumCategory.cs" />
+    <Compile Include="Models\KOK_Template\Product\Product.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductCategory.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductDownload.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductImage.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductLength.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductOfLength.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductOfSame.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductOption.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductOptionCategory.cs" />
+    <Compile Include="Models\KOK_Template\Product\ProductSizeColor.cs" />
+    <Compile Include="Models\KOK_Template\Project\Project.cs" />
+    <Compile Include="Models\KOK_Template\Project\ProjectCategory.cs" />
+    <Compile Include="Models\KOK_Template\Project\ProjectDownload.cs" />
+    <Compile Include="Models\KOK_Template\Project\ProjectImage.cs" />
+    <Compile Include="Models\KOK_Template\Project\ProjectVideo.cs" />
+    <Compile Include="Models\KOK_Template\Province\Province.cs" />
+    <Compile Include="Models\KOK_Template\Rating\Rating.cs" />
+    <Compile Include="Models\KOK_Template\Service\Service.cs" />
+    <Compile Include="Models\KOK_Template\Service\ServiceCategory.cs" />
+    <Compile Include="Models\KOK_Template\ShippingStatus\ShippingStatus.cs" />
+    <Compile Include="Models\KOK_Template\UserProfile\UserProfile.cs" />
+    <Compile Include="Models\KOK_Template\Video\Video.cs" />
+    <Compile Include="Models\KOK_Template\Video\VideoCategory.cs" />
+    <Compile Include="Models\KOK_Template\Visitor\Visitor.cs" />
+    <Compile Include="Models\KOK_Template\WishList\WishList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IdentityRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\admin\Content\assets\avatars\avatar.png" />
+    <Content Include="Areas\admin\Content\assets\avatars\avatar1.png" />
+    <Content Include="Areas\admin\Content\assets\avatars\avatar2.png" />
+    <Content Include="Areas\admin\Content\assets\avatars\avatar3.png" />
+    <Content Include="Areas\admin\Content\assets\avatars\avatar4.png" />
+    <Content Include="Areas\admin\Content\assets\avatars\avatar5.png" />
+    <Content Include="Areas\admin\Content\assets\avatars\Icon-user.png" />
+    <Content Include="Areas\admin\Content\assets\avatars\profile-pic.jpg" />
+    <Content Include="Areas\admin\Content\assets\avatars\user.jpg" />
+    <Content Include="Areas\admin\Content\assets\css\ace-fonts.css" />
+    <Content Include="Areas\admin\Content\assets\css\ace-ie.css" />
+    <Content Include="Areas\admin\Content\assets\css\ace-part2.css" />
+    <Content Include="Areas\admin\Content\assets\css\ace-rtl.css" />
+    <Content Include="Areas\admin\Content\assets\css\ace-skins.css" />
+    <Content Include="Areas\admin\Content\assets\css\ace.css" />
+    <Content Include="Areas\admin\Content\assets\css\ace.onpage-help.css" />
+    <Content Include="Areas\admin\Content\assets\css\bootstrap-datetimepicker.css" />
+    <Content Include="Areas\admin\Content\assets\css\bootstrap-duallistbox.css" />
+    <Content Include="Areas\admin\Content\assets\css\bootstrap-editable.css" />
+    <Content Include="Areas\admin\Content\assets\css\bootstrap-multiselect.css" />
+    <Content Include="Areas\admin\Content\assets\css\bootstrap-timepicker.css" />
+    <Content Include="Areas\admin\Content\assets\css\bootstrap.css" />
+    <Content Include="Areas\admin\Content\assets\css\chosen-sprite%402x.png" />
+    <Content Include="Areas\admin\Content\assets\css\chosen-sprite.png" />
+    <Content Include="Areas\admin\Content\assets\css\chosen.css" />
+    <Content Include="Areas\admin\Content\assets\css\colorbox.css" />
+    <Content Include="Areas\admin\Content\assets\css\colorpicker.css" />
+    <Content Include="Areas\admin\Content\assets\css\datepicker.css" />
+    <Content Include="Areas\admin\Content\assets\css\daterangepicker.css" />
+    <Content Include="Areas\admin\Content\assets\css\dropzone.css" />
+    <Content Include="Areas\admin\Content\assets\css\font-awesome.css" />
+    <Content Include="Areas\admin\Content\assets\css\fullcalendar.css" />
+    <Content Include="Areas\admin\Content\assets\css\fullcalendar.print.css" />
+    <Content Include="Areas\admin\Content\assets\css\images\border.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\border1.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\border2.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\controls.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\ie6\borderBottomCenter.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\ie6\borderBottomLeft.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\ie6\borderBottomRight.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\ie6\borderMiddleLeft.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\ie6\borderMiddleRight.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\ie6\borderTopCenter.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\ie6\borderTopLeft.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\ie6\borderTopRight.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\loading.gif" />
+    <Content Include="Areas\admin\Content\assets\css\images\loading_background.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\meteorshower.jpg" />
+    <Content Include="Areas\admin\Content\assets\css\images\meteorshower2.jpg" />
+    <Content Include="Areas\admin\Content\assets\css\images\overlay.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\pattern.jpg" />
+    <Content Include="Areas\admin\Content\assets\css\images\pattern.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\spritemap%402x.png" />
+    <Content Include="Areas\admin\Content\assets\css\images\spritemap.png" />
+    <Content Include="Areas\admin\Content\assets\css\img\alpha.png" />
+    <Content Include="Areas\admin\Content\assets\css\img\hue.png" />
+    <Content Include="Areas\admin\Content\assets\css\img\saturation.png" />
+    <Content Include="Areas\admin\Content\assets\css\jquery-ui.css" />
+    <Content Include="Areas\admin\Content\assets\css\jquery-ui.custom.css" />
+    <Content Include="Areas\admin\Content\assets\css\jquery.gritter.css" />
+    <Content Include="Areas\admin\Content\assets\css\pace.css" />
+    <Content Include="Areas\admin\Content\assets\css\prettify.css" />
+    <Content Include="Areas\admin\Content\assets\css\select2-spinner.gif" />
+    <Content Include="Areas\admin\Content\assets\css\select2.css" />
+    <Content Include="Areas\admin\Content\assets\css\select2.png" />
+    <Content Include="Areas\admin\Content\assets\css\select2x2.png" />
+    <Content Include="Areas\admin\Content\assets\css\ui.jqgrid.css" />
+    <Content Include="Areas\admin\Content\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\admin\Content\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\admin\Content\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\admin\Content\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\admin\Content\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\admin\Content\assets\fonts\FontAwesome.otf" />
+    <Content Include="Areas\admin\Content\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\admin\Content\assets\images\back_disabled.png" />
+    <Content Include="Areas\admin\Content\assets\images\back_enabled.png" />
+    <Content Include="Areas\admin\Content\assets\images\back_enabled_hover.png" />
+    <Content Include="Areas\admin\Content\assets\images\email1.png" />
+    <Content Include="Areas\admin\Content\assets\images\email2.png" />
+    <Content Include="Areas\admin\Content\assets\images\email3.png" />
+    <Content Include="Areas\admin\Content\assets\images\email4.png" />
+    <Content Include="Areas\admin\Content\assets\images\forward_disabled.png" />
+    <Content Include="Areas\admin\Content\assets\images\forward_enabled.png" />
+    <Content Include="Areas\admin\Content\assets\images\forward_enabled_hover.png" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\image-1.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\image-2.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\image-3.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\image-4.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\image-5.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\image-6.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\thumb-1.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\thumb-2.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\thumb-3.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\thumb-4.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\thumb-5.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\gallery\thumb-6.jpg" />
+    <Content Include="Areas\admin\Content\assets\images\sort_asc.png" />
+    <Content Include="Areas\admin\Content\assets\images\sort_asc_disabled.png" />
+    <Content Include="Areas\admin\Content\assets\images\sort_both.png" />
+    <Content Include="Areas\admin\Content\assets\images\sort_desc.png" />
+    <Content Include="Areas\admin\Content\assets\images\sort_desc_disabled.png" />
+    <Content Include="Areas\admin\Content\assets\images\spritemap%402x.png" />
+    <Content Include="Areas\admin\Content\assets\images\spritemap.png" />
+    <Content Include="Areas\admin\Content\assets\img\clear.png" />
+    <Content Include="Areas\admin\Content\assets\img\glyphicons-halflings-white.png" />
+    <Content Include="Areas\admin\Content\assets\img\glyphicons-halflings.png" />
+    <Content Include="Areas\admin\Content\assets\img\loading.gif" />
+    <Content Include="Areas\admin\Content\assets\js\ace-elements.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace-extra.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.ajax-content.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.auto-container.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.auto-padding.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.onpage-help.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.searchbox-autocomplete.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.settings-rtl.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.settings-skin.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.settings.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.sidebar-scroll-1.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.sidebar-scroll-2.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.sidebar.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.submenu-hover.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.touch-drag.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.widget-box.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\ace.widget-on-reload.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.aside.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.colorpicker.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.fileinput.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.onpage-help.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.scroller.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.spinner.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.treeview.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.typeahead.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.wizard.js" />
+    <Content Include="Areas\admin\Content\assets\js\ace\elements.wysiwyg.js" />
+    <Content Include="Areas\admin\Content\assets\js\additional-methods.js" />
+    <Content Include="Areas\admin\Content\assets\js\bootbox.js" />
+    <Content Include="Areas\admin\Content\assets\js\bootstrap-colorpicker.js" />
+    <Content Include="Areas\admin\Content\assets\js\bootstrap-multiselect.js" />
+    <Content Include="Areas\admin\Content\assets\js\bootstrap-tag.js" />
+    <Content Include="Areas\admin\Content\assets\js\bootstrap-wysiwyg.js" />
+    <Content Include="Areas\admin\Content\assets\js\bootstrap.js" />
+    <Content Include="Areas\admin\Content\assets\js\chosen.jquery.js" />
+    <Content Include="Areas\admin\Content\assets\js\dataTables\extensions\ColVis\js\dataTables.colVis.js" />
+    <Content Include="Areas\admin\Content\assets\js\dataTables\extensions\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="Areas\admin\Content\assets\js\dataTables\extensions\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="Areas\admin\Content\assets\js\dataTables\extensions\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Areas\admin\Content\assets\js\dataTables\jquery.dataTables.bootstrap.js" />
+    <Content Include="Areas\admin\Content\assets\js\dataTables\jquery.dataTables.js" />
+    <Content Include="Areas\admin\Content\assets\js\date-time\bootstrap-datepicker.js" />
+    <Content Include="Areas\admin\Content\assets\js\date-time\bootstrap-datetimepicker.js" />
+    <Content Include="Areas\admin\Content\assets\js\date-time\bootstrap-timepicker.js" />
+    <Content Include="Areas\admin\Content\assets\js\date-time\daterangepicker.js" />
+    <Content Include="Areas\admin\Content\assets\js\date-time\moment.js" />
+    <Content Include="Areas\admin\Content\assets\js\dropzone.js" />
+    <Content Include="Areas\admin\Content\assets\js\excanvas.js" />
+    <Content Include="Areas\admin\Content\assets\js\flot\jquery.flot.js" />
+    <Content Include="Areas\admin\Content\assets\js\flot\jquery.flot.pie.js" />
+    <Content Include="Areas\admin\Content\assets\js\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\admin\Content\assets\js\fuelux\fuelux.spinner.js" />
+    <Content Include="Areas\admin\Content\assets\js\fuelux\fuelux.tree.js" />
+    <Content Include="Areas\admin\Content\assets\js\fuelux\fuelux.wizard.js" />
+    <Content Include="Areas\admin\Content\assets\js\fullcalendar.js" />
+    <Content Include="Areas\admin\Content\assets\js\html5shiv.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-ar.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-bg.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-bg1251.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-cat.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-cn.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-cs.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-da.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-de.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-dk.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-el.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-es.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-fa.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-fi.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-fr.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-gl.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-he.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-hr.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-hr1250.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-hu.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-id.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-is.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-it.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-ja.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-kr.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-lt.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-mne.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-nl.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-no.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-pl.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-pt-br.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-pt.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-ro.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-ru.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-sk.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-sr.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-sv.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-th.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-tr.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-tw.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-ua.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\i18n\grid.locale-vi.js" />
+    <Content Include="Areas\admin\Content\assets\js\jqGrid\jquery.jqGrid.src.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery-ui.custom.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery-ui.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.autosize.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.bootstrap-duallistbox.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.colorbox.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.easypiechart.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.gritter.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.hotkeys.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.inputlimiter.1.3.1.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.knob.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.maskedinput.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.mobile.custom.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.mousewheel.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.nestable.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.raty.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.slimscroll.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.sparkline.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.ui.touch-punch.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery.validate.js" />
+    <Content Include="Areas\admin\Content\assets\js\jquery1x.js" />
+    <Content Include="Areas\admin\Content\assets\js\markdown\bootstrap-markdown.js" />
+    <Content Include="Areas\admin\Content\assets\js\markdown\markdown.js" />
+    <Content Include="Areas\admin\Content\assets\js\markdown\to-markdown.js" />
+    <Content Include="Areas\admin\Content\assets\js\pace.js" />
+    <Content Include="Areas\admin\Content\assets\js\prettify.js" />
+    <Content Include="Areas\admin\Content\assets\js\respond.js" />
+    <Content Include="Areas\admin\Content\assets\js\select2.js" />
+    <Content Include="Areas\admin\Content\assets\js\spin.js" />
+    <Content Include="Areas\admin\Content\assets\js\typeahead.jquery.js" />
+    <Content Include="Areas\admin\Content\assets\js\x-editable\ace-editable.js" />
+    <Content Include="Areas\admin\Content\assets\js\x-editable\bootstrap-editable.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\AddOnManager.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\CaretBookmark.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\CaretCandidate.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\CaretContainer.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\CaretPosition.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\CaretUtils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\CaretWalker.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\FakeCaret.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\LineUtils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\caret\LineWalker.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\Compat.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\content\LinkTargets.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\data\Binding.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\data\ObservableArray.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\data\ObservableObject.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\BookmarkManager.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\ControlSelection.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\Dimensions.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\DomQuery.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\DOMUtils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\ElementUtils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\EventUtils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\MousePosition.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\NodePath.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\NodeType.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\Range.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\RangeUtils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\ScriptLoader.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\Selection.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\Serializer.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\Sizzle.jQuery.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\Sizzle.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\StyleSheetLoader.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\TreeWalker.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\dom\TridentSelection.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\DragDropOverrides.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\Editor.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\EditorCommands.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\EditorManager.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\EditorObservable.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\EditorUpload.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\EnterKey.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\Env.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ErrorReporter.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\file\BlobCache.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\file\Conversions.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\file\ImageScanner.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\file\Uploader.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\file\UploadStatus.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\fmt\FontInfo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\fmt\Hooks.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\fmt\Preview.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\FocusManager.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ForceBlocks.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\Formatter.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\geom\ClientRect.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\geom\Rect.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\html\DomParser.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\html\Entities.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\html\Node.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\html\SaxParser.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\html\Schema.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\html\Serializer.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\html\Styles.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\html\Writer.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\InsertContent.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\InsertList.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\jquery.tinymce.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\LegacyInput.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\Mode.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\NodeChange.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\NotificationManager.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\Register.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\SelectionOverrides.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\Shortcuts.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\text\ExtendingChar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\text\Zwsp.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\AbsoluteLayout.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\BoxUtils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Button.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ButtonGroup.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Checkbox.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ClassList.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Collection.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ColorBox.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ColorButton.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ColorPicker.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ComboBox.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Container.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Control.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\DomUtils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\DragHelper.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ElementPath.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Factory.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\FieldSet.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\FilePicker.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\FitLayout.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\FlexLayout.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\FloatPanel.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\FlowLayout.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Form.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\FormatControls.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\FormItem.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\GridLayout.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Iframe.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\InfoBox.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\KeyboardNavigation.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Label.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Layout.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ListBox.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Menu.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\MenuBar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\MenuButton.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\MenuItem.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\MessageBox.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Movable.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Notification.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Panel.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\PanelButton.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Path.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Progress.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Radio.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ReflowQueue.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Resizable.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\ResizeHandle.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Scrollable.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\SelectBox.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Selector.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Sidebar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Slider.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Spacer.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\SplitButton.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\StackLayout.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\TabPanel.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\TextBox.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Throbber.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Toolbar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Tooltip.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Widget.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\ui\Window.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\UndoManager.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\undo\Diff.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\undo\Fragments.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\undo\Levels.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Arr.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Class.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Color.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Delay.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\EventDispatcher.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Fun.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\I18n.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\JSON.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\JSONP.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\JSONRequest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\LocalStorage.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Observable.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Private.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Promise.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Quirks.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Tools.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\URI.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\Uuid.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\VK.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\util\XHR.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\classes\WindowManager.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\langs\vi_VN.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\license.txt" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\codesample\classes\Dialog.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\codesample\classes\Plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\codesample\classes\Prism.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\codesample\classes\Utils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\codesample\plugin.dev.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\codesample\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\code\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\css\dialog.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\img\buttons.png" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\img\icons.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\img\items.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\img\menu_arrow.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\img\menu_check.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\img\progress.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\img\tabs.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\tiny_mce_popup.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\utils\editable_selects.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\utils\form_utils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\utils\mctabs.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\compat3x\utils\validate.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\example\dialog.html" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\example\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\example_dependency\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\hr\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\config\bolt\atomic.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\config\bolt\browser.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\config\bolt\demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\config\bolt\prod.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\Gruntfile.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\demo\html\demo.html" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\demo\js\Demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\main\js\CropRect.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\main\js\Dialog.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\main\js\ImagePanel.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\main\js\ImageSize.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\main\js\Plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\main\js\Proxy.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\main\js\UndoStack.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\imagetools\src\main\js\Utils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\image\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\link\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\config\bolt\atomic.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\config\bolt\browser.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\config\bolt\demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\config\bolt\prod.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\Gruntfile.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\demo\html\demo.html" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\demo\js\tinymce\lists\Demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\actions\Indent.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\actions\Outdent.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\actions\ToggleList.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\core\Bookmark.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\core\Delete.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\core\NodeType.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\core\NormalizeLists.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\core\Range.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\core\Selection.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\core\SplitList.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\core\TextBlock.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\main\js\tinymce\lists\Plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\browser\ApplyDlTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\browser\ApplyTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\browser\BackspaceDeleteInlineTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\browser\BackspaceDeleteTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\browser\IndentTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\browser\InlineTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\browser\OutdentTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\browser\RemoveTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\test\js\module\tinymce\lists\test\LegacyUnit.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\config\bolt\atomic.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\config\bolt\browser.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\config\bolt\demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\config\bolt\prod.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\Gruntfile.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\demo\html\demo.html" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\demo\js\tinymce\media\Demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\DataToHtml.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\HtmlToData.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\Mime.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\Nodes.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\Sanitize.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\Service.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\Size.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\UpdateHtml.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\UrlPatterns.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\core\VideoScript.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\Plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\ui\Dialog.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\main\js\tinymce\media\ui\SizeManager.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\atomic\HtmlToDataTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\DataAttributeTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\DataToHtmlTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\DimensionsControlTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\EphoxEmbedTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\MediaEmbedTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\PlaceholderTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\PluginTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\ReopenResizeTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\browser\SubmitTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\test\js\module\tinymce\media\test\Utils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\classes\Clipboard.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\classes\Plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\classes\Quirks.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\classes\SmartPaste.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\classes\Utils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\classes\WordFilter.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\plugin.dev.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\preview\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\print\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\save\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\spellchecker\classes\DomTextMatcher.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\spellchecker\classes\Plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\spellchecker\plugin.dev.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\classes\CellSelection.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\classes\Dialogs.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\classes\Plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\classes\Quirks.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\classes\ResizeBars.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\classes\SplitCols.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\classes\TableGrid.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\classes\Utils.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\plugin.dev.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\template\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\toc\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\address.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\article.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\aside.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\blockquote.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\div.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\dl.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\figure.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\h1.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\h2.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\h3.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\h4.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\h5.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\h6.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\hgroup.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\ol.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\p.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\pre.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\section.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\img\ul.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\config\bolt\atomic.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\config\bolt\browser.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\config\bolt\demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\config\bolt\prod.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\Gruntfile.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\demo\html\demo.html" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\demo\js\tinymce\wordcount\Demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\main\js\tinymce\wordcount\alien\Arr.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\main\js\tinymce\wordcount\Plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\main\js\tinymce\wordcount\text\StringMapper.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\main\js\tinymce\wordcount\text\UnicodeData.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\main\js\tinymce\wordcount\text\WordBoundary.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\main\js\tinymce\wordcount\text\WordGetter.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\test\js\atomic\core\IsWordBoundaryTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\test\js\atomic\core\StringMapperTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\test\js\atomic\core\WordGetterTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\test\js\browser\core\PluginTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\youtube\images\preview.png" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\youtube\images\youtube.png" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\youtube\includes\youTube.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\youtube\includes\youTube.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\youtube\plugin.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\youtube\plugin.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\youtube\youtube.aspx" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\config\bolt\atomic.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\config\bolt\browser.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\config\bolt\demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\config\bolt\prod.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\Gruntfile.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\demo\css\demo.css" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\demo\html\demo.html" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\demo\js\tinymce\inlite\Demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Arr.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Bookmark.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\EditorSettings.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Type.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Unlink.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Uuid.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Actions.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Convert.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\ElementMatcher.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Layout.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Matcher.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Measure.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\PredicateId.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\SelectionMatcher.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\SkinLoader.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\UrlType.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\file\Conversions.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\file\Picker.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\Theme.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\ui\Buttons.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\ui\Forms.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\ui\Panel.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\main\js\tinymce\inlite\ui\Toolbar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\atomic\alien\ArrTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\atomic\alien\TypeTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\atomic\alien\UuidTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\atomic\core\ConvertTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\atomic\core\MatcherTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\atomic\core\UrlTypeTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\alien\BookmarkTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\alien\EditorSettingsTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\alien\UnlinkTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\AutoCompleteTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\core\ActionsTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\core\ElementMatcher.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\core\LayoutTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\core\MeasureTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\core\PredicateIdTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\core\SelectionMatcherTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\file\ConversionsTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\file\SelectionMatcher.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\browser\ThemeTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\js\module\tinymce\inlite\test\Toolbar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\theme.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\config\bolt\browser.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\config\bolt\demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\config\bolt\prod.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\Gruntfile.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\demo\html\demo.html" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\demo\js\tinymce\modern\Demo.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\modes\Iframe.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\modes\Inline.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\Theme.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\ui\A11y.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\ui\ContextToolbars.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\ui\Menubar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\ui\ProgressState.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\ui\Resize.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\ui\Sidebar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\ui\SkinLoaded.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\main\js\tinymce\modern\ui\Toolbar.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\test\browser\SidebarTest.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\theme.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\tinymce.dev.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\tinymce.js" />
+    <Content Include="Areas\admin\Content\assets\tinymce\tinymce.min.js" />
+    <Content Include="Areas\admin\Content\bootstrap.css" />
+    <Content Include="Areas\admin\Content\bootstrap.min.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\language\css.js" />
+    <Content Include="Areas\admin\Content\docs\assets\js\language\generic.js" />
+    <Content Include="Areas\admin\Content\docs\assets\js\language\html.js" />
+    <Content Include="Areas\admin\Content\docs\assets\js\language\javascript.js" />
+    <Content Include="Areas\admin\Content\docs\assets\js\language\php.js" />
+    <Content Include="Areas\admin\Content\docs\assets\js\rainbow.js" />
+    <Content Include="Areas\admin\Content\docs\assets\js\rainbow.min.js" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\all-hallows-eve.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\blackboard.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\dreamweaver.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\espresso-libre.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\github.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\kimbie-dark.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\kimbie-light.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\monokai.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\obsidian.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\paraiso-dark.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\paraiso-light.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\pastie.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\solarized-dark.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\solarized-light.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\sunburst.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\tomorrow-night.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\tricolore.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\twilight.css" />
+    <Content Include="Areas\admin\Content\docs\assets\js\themes\zenburnesque.css" />
+    <Content Include="Areas\admin\Content\docs\blank.html" />
+    <Content Include="Areas\admin\Content\docs\images\active.png" />
+    <Content Include="Areas\admin\Content\docs\images\default.png" />
+    <Content Include="Areas\admin\Content\docs\images\help-icon1.png" />
+    <Content Include="Areas\admin\Content\docs\images\help-icon2.png" />
+    <Content Include="Areas\admin\Content\docs\images\help-include-all.png" />
+    <Content Include="Areas\admin\Content\docs\images\help-panels.png" />
+    <Content Include="Areas\admin\Content\docs\images\navbar-mobile1.png" />
+    <Content Include="Areas\admin\Content\docs\images\navbar-mobile2.png" />
+    <Content Include="Areas\admin\Content\docs\images\navbar.png" />
+    <Content Include="Areas\admin\Content\docs\images\new-toggle.png" />
+    <Content Include="Areas\admin\Content\docs\images\old-toggle.png" />
+    <Content Include="Areas\admin\Content\docs\images\scroll-content.png" />
+    <Content Include="Areas\admin\Content\docs\images\sidebar-mobile1.png" />
+    <Content Include="Areas\admin\Content\docs\images\sidebar-mobile2.png" />
+    <Content Include="Areas\admin\Content\docs\images\sidebar.png" />
+    <Content Include="Areas\admin\Content\docs\images\tabbed-dropdown.png" />
+    <Content Include="Areas\admin\Content\docs\images\tabless-inbox.png" />
+    <Content Include="Areas\admin\Content\docs\images\toggle-sidebar-1.png" />
+    <Content Include="Areas\admin\Content\docs\images\toggle-sidebar-11.png" />
+    <Content Include="Areas\admin\Content\docs\images\toggle-sidebar-3.png" />
+    <Content Include="Areas\admin\Content\docs\images\user-menu.png" />
+    <Content Include="Areas\admin\Content\docs\index.html" />
+    <Content Include="Areas\admin\Content\docs\sections\basics\ajax.html" />
+    <Content Include="Areas\admin\Content\docs\sections\basics\content.html" />
+    <Content Include="Areas\admin\Content\docs\sections\basics\footer.html" />
+    <Content Include="Areas\admin\Content\docs\sections\basics\layout.html" />
+    <Content Include="Areas\admin\Content\docs\sections\basics\navbar.html" />
+    <Content Include="Areas\admin\Content\docs\sections\basics\sidebar.html" />
+    <Content Include="Areas\admin\Content\docs\sections\changes\index.html" />
+    <Content Include="Areas\admin\Content\docs\sections\credits\index.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\checkbox.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\colorpicker.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\content-slider.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\extra.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\file-input.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\index.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\inline-editable.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\onpage-help.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\scrollbar.html" />
+    <Content Include="Areas\admin\Content\docs\sections\custom\widget-box.html" />
+    <Content Include="Areas\admin\Content\docs\sections\elements\index.html" />
+    <Content Include="Areas\admin\Content\docs\sections\files\css.html" />
+    <Content Include="Areas\admin\Content\docs\sections\files\examples.html" />
+    <Content Include="Areas\admin\Content\docs\sections\files\html.html" />
+    <Content Include="Areas\admin\Content\docs\sections\files\javascript.html" />
+    <Content Include="Areas\admin\Content\docs\sections\files\mustache.html" />
+    <Content Include="Areas\admin\Content\docs\sections\intro\index.html" />
+    <Content Include="Areas\admin\Content\docs\sections\issues\index.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\dashboard.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\email.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\error.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\faq.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\gallery.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\inbox.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\invoice.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\login.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\pricing.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\profile.html" />
+    <Content Include="Areas\admin\Content\docs\sections\pages\timeline.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\bootstrap.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\charts.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\date-time.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\editor.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\fuelux.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\input.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\jquery.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\misc.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\tables.html" />
+    <Content Include="Areas\admin\Content\docs\sections\plugins\tools.html" />
+    <Content Include="Areas\admin\Content\docs\sections\settings\index.html" />
+    <Content Include="Areas\admin\Content\Site.css" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DBContext\migrationCommands.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\admin\Views\web.config" />
+    <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="config\app.config" />
+    <Content Include="config\config.ash" />
+    <Content Include="Areas\admin\Content\assets\css\less\ace-features.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\ace-nav.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\ace-responsive.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\ace-rtl.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\ace.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\basic.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\alerts.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\badges.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\bootstrap.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\breadcrumbs.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\button-groups.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\buttons.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\carousel.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\close.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\code.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\component-animations.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\dropdowns.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\forms.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\glyphicons.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\grid.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\input-groups.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\jumbotron.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\labels.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\list-group.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\media.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\alerts.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\background-variant.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\border-radius.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\buttons.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\center-block.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\clearfix.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\forms.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\gradients.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\grid.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\hide-text.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\image.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\labels.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\list-group.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\opacity.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\pagination.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\panels.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\resize.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\size.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\table-row.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\modals.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\navbar.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\navs.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\normalize.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\pager.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\pagination.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\panels.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\popovers.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\print.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\progress-bars.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\responsive-embed.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\responsive-utilities.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\scaffolding.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\tables.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\theme.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\thumbnails.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\tooltip.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\type.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\utilities.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\variables.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bootstrap\wells.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\breadcrumbs.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\bs3-reset.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\buttons.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\dropdown.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\dropdown\colorpicker.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\dropdown\navbar-dropdown.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\dropdown\navbar-tabbed-dropdown.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\ext\bootstrap-tag.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\fonts-rel.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\fonts.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\footer.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\form.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\form\checkbox.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\form\file.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\gallery.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\general.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\icon-animated.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\infobox.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\items.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\label-badge.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\mixins.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\modal.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\navbar\collapsible.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\navbar\navbar-menu-form.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\navbar\toggle-button.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\navbar\user-buttons-move-down.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\navbar\user-buttons.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\navbar\user-dropdown-position.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\navbar\user-menu.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\onpage-help.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\other.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\page.error.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\page.inbox.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\page.invoice.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\page.login.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\page.pricing.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\page.profile.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\page.timeline.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\print.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\progressbar.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\scroll.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\searchbox.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\active.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\compact.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\ff_fix.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\highlight.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\horizontal.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\hover.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\min.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\multiple.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\old-toggle-button.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\responsive-1.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\responsive-2.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\responsive-3.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\shortcuts-toggle.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\sidebar-fixed.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\sidebar\sub-arrow.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\skins\empty.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\skins\no-skin.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\skins\skin-1.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\skins\skin-2.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\skins\skin-3.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\skins\skins.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\tab-accordion.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\tables.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-calendar.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-chosen.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-colorbox.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-dataTables.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-date.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-dropzone.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-duallist-multiselect.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-editable.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-fuelux.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-gritter.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-jqgrid.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-jquery-ui.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-nestable.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-raty.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-select2.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-slider.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-typeahead.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\thirdparty-wysiwyg.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\tooltip-popover.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\utility.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\variables.less" />
+    <Content Include="Areas\admin\Content\assets\css\less\widget.less" />
+    <Content Include="Areas\admin\Content\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\admin\Content\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\admin\Content\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\admin\Content\assets\fonts\OpenSans-300.woff" />
+    <Content Include="Areas\admin\Content\assets\fonts\OpenSans-400.woff" />
+    <Content Include="Areas\admin\Content\assets\fonts\readme" />
+    <Content Include="Areas\admin\Content\assets\js\ace\readme" />
+    <Content Include="Areas\admin\Content\assets\js\ace\scripts.json" />
+    <Content Include="Areas\admin\Content\assets\tinymce\langs\readme.md" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\lists\src\.eslintrc" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\media\src\.eslintrc" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\wordcount\src\test\.eslintrc" />
+    <Content Include="Areas\admin\Content\assets\tinymce\plugins\youtube\images\Thumbs.db" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\AbsoluteLayout.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Animations.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Arrows.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Button.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ButtonGroup.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Checkbox.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ColorBox.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ColorButton.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ColorPicker.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ComboBox.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Container.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Content.Inline.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Content.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Content.Objects.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\CropRect.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\FieldSet.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\FitLayout.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\FloatPanel.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\FlowLayout.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce-small.json" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce.json" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Icons.Ie7.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Icons.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Iframe.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ImagePanel.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\InfoBox.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Label.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ListBox.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Menu.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\MenuBar.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\MenuButton.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\MenuItem.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Mixins.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Notification.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Panel.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Path.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Progress.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Radio.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Reset.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ResizeHandle.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Scrollable.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\SelectBox.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Sidebar.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\skin.dev.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\skin.ie7.dev.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\skin.ie7.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\skin.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Slider.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Spacer.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\SplitButton.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\StackLayout.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\TabPanel.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\TextBox.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Throbber.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\TinyMCE.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\ToolTip.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Variables.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\skins\lightgray\Window.less" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\inlite\src\test\.eslintrc" />
+    <Content Include="Areas\admin\Content\assets\tinymce\themes\modern\src\test\.eslintrc" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\MaiTrung.Com.pubxml" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Identity\201706141645145_Init DB Identity.resx">
+      <DependentUpon>201706141645145_Init DB Identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\KOK_Template\201706141643517_Init DB Main.resx">
+      <DependentUpon>201706141643517_Init DB Main.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58387</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58387/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

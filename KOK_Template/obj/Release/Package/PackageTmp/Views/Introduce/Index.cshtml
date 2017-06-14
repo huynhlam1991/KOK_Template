@@ -1,0 +1,18 @@
+﻿@model TranLe_pj.Models.PostModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //SEO Tag
+    ViewBag.Title = "Giới thiệu - Mai Trung - Trading Services Technology.,LTD";
+}
+<div class="container">
+    <div id="site" class="corner">
+        <a id="A1" href="~/"><span>Trang chủ</span></a><span class="fa fa-caret-right"></span><span> Giới thiệu về công ty</span>
+    </div>
+    <div class="about-us">
+        <div class="about-content">
+            <h1>@Model.ProductName</h1>
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
+</div>
+

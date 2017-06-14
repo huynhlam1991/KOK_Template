@@ -1,0 +1,137 @@
+﻿@model TranLe_pj.Models.PostModel
+@using TranLe_pj.Areas.admin.GetData
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Post _post = new Post();
+    var listAlbum = _post.getListImage(Model.ProductID).OrderByDescending(m => m.ProductImageID).ToList();
+    ViewBag.Title = !string.IsNullOrEmpty(Model.MetaTittle) ? Model.MetaTittle : Model.ProductName + " - Mai Trung - Trading Services Technology.,LTD";
+    ViewBag.Description = "Giá: " + (Model.Price == 0.0M ? "Liên hệ": string.Format("{0:##,###.##}", Model.Price.GetValueOrDefault()));
+    ViewBag.Image = Url.Content("~/data/products/" + Model.ImageName);
+}
+<div class="container">
+    <div id="site" class="corner">
+        <a id="A1" href="~/"><span>Trang chủ</span></a><span class="fa fa-caret-right"></span><a href="@Url.Action("Index","Products",new { url = TLLib.Common.ConvertTitle(_post.getNameCategory(Model.CategoryID.Value)), id = Model.CategoryID.Value})">@_post.getNameCategory(Model.CategoryID.GetValueOrDefault())</a><span class="fa fa-caret-right"></span><a>@_post.getNameOriginByID(Model.OriginID.GetValueOrDefault())</a><span class="fa fa-caret-right"></span><span> @Model.ProductName</span>
+    </div>
+    <div class="product-bg">
+        <div id="sliderDetails" class="detail-images">
+            <div class="wrap-images">
+                <div class="detailimg-desktop">
+                    <div class="zoom-box">
+                        <a id="zoom1" href="javarscript:void(0)" class="cloud-zoom" rel="showTitle: false, adjustY:0, adjustX:5">
+                            <img class="img-responsive" src="" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <div class="detailimg-mobile">
+                    <div class="slider-for">
+                        @{
+                            foreach (var item in listAlbum)
+                            {
+                                <div class="slide">
+                                    <img src="@Url.Content("~/data/products/album/"+item.ImageName + "?w=800&h=820&mode=pad")" alt="" />
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper-in">
+                <div class="wrapper-7">
+                    <div class="slider-nav">
+                        @{
+                            foreach (var item in listAlbum)
+                            {
+                                <div class="slide">
+                                    <a href='@Url.Content("~/data/products/album/"+item.ImageName + "?w=800&h=820&mode=pad")' data-img='@Url.Content("~/data/products/album/"+item.ImageName+ "?w=400&h=410&mode=pad")' class='cloud-zoom-gallery small-img' title='@item.ImageName' rel="useZoom: 'zoom1', smallImage: '@Url.Content("~/data/products/album/"+item.ImageName+ "?w=400&h=410&mode=pad")'">
+                                        <span>
+                                            <img src="@Url.Content("~/data/products/album/"+item.ImageName + "?w=72&h=72&mode=pad")" alt="" />
+                                        </span>
+                                    </a>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-content">
+            <h1>@Model.ProductName</h1>
+            @if (Model.Price == 0.0m)
+            {
+                <span>Liên Hệ<span></span></span>
+            }
+            else
+            {
+                <span>@string.Format("{0:##,###.##}", Model.Price.GetValueOrDefault())<span>đ</span></span>
+                <i>@string.Format("{0:##,###.##}", Model.SavePrice.GetValueOrDefault())đ</i>
+            }
+            <ul class="list-pro">
+                @Html.Raw(Model.DescriptionEn)
+            </ul>
+            <p>Gọi đặt mua: <span>08. 38300144 - 62792606</span></p>
+        </div>
+    </div>
+    <div class="product-detail">
+        <div class="title-box"><h1>Thông số kỹ thuật</h1></div>
+        <ul class="list-param">
+            @Html.Raw(Model.ContentEn)
+        </ul>
+        <div class="productcontent">
+            <div class="pro-deatil">
+                <div class="title-box"><h1>@Model.ProductName</h1></div>
+                <div class="pro-content">
+                    @Html.Raw(Model.Content)
+                </div>
+            </div>
+        </div>
+        <div class="product-all">
+            <div class="title-box"><h1>Sản phẩm liên quan</h1></div>
+
+            <div id="productSlider" class="owl-carousel pro-main">
+                @{
+                    var listProductSame = _post.getAllByCate(Model.CategoryID.Value).Where(m => m.ProductID != Model.ProductID).OrderByDescending(m=>m.CreateDate).Take(10).ToList();
+                    foreach (var item in listProductSame)
+                    {
+                        <div class="item">
+                            <div class="info">
+                                <div class="infobox">
+                                    <a href="@Url.Action("Detail","Products", new { url = TLLib.Common.ConvertTitle(item.ProductName), id = item.ProductID})">
+                                        <div class="info-img">
+                                            <img src="@Url.Content("~/data/products/"+item.ImageName + "?w=250&h=200&mode=pad")" alt="@item.ProductName" title="@item.ProductName" />
+                                        </div>
+                                        <div class="info-content">
+                                            <h1>@item.ProductName</h1>
+                                            @if (item.Price == 0.0m)
+                                            {
+                                                <span>Liên Hệ<span></span></span>
+                                            }
+                                            else
+                                            {
+                                                <span>@string.Format("{0:##,###.##}", item.Price.GetValueOrDefault())<span>đ</span></span>
+                                                <i>@string.Format("{0:##,###.##}", item.SavePrice.GetValueOrDefault())đ</i>
+                                            }
+                                        </div>
+                                        <div class="info-hover">
+                                            <h1>@item.ProductName</h1>
+                                            @if (item.Price == 0.0m)
+                                            {
+                                                <span>Liên Hệ<span></span></span>
+                                            }
+                                            else
+                                            {
+                                                <span>@string.Format("{0:##,###.##}", item.Price.GetValueOrDefault())<span>đ</span></span>
+                                            }
+                                            <ul class="info-param">
+                                                @Html.Raw(item.Description)
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

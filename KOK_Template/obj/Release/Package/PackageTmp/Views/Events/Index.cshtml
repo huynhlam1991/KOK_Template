@@ -1,0 +1,47 @@
+﻿@model List<TranLe_pj.Models.PostModel>
+@using TranLe_pj.Areas.admin.GetData
+@using TranLe_pj.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Post _post = new Post();
+    int totalPost = Model.Count;
+    int numberPost = 15;
+
+    int totalPage = totalPost / numberPost + (totalPost % numberPost > 0 ? 1 : 0);
+    int PageCurrent = ViewBag.PageCurrent;
+
+    int page = PageCurrent + 4 < totalPage ? PageCurrent + 4 : totalPage;
+    //SEO tag
+    ViewBag.Title = _post.getNameCategory((int)ViewBag.CateID) + " - Mai Trung - Trading Services Technology.,LTD";
+}
+<div class="container">
+    <div id="site" class="corner">
+        <a id="A1" href="~/"><span>Trang chủ</span></a><span class="fa fa-caret-right"></span><span> @_post.getNameCategory((int)ViewBag.CateID)</span>
+    </div>
+    <div class="news-main">
+        @foreach (var item in Model.Skip((PageCurrent - 1) * numberPost).Where(m => m.IsAvailable == true).OrderByDescending(m => m.CreateDate).Take(numberPost).ToList())
+        {
+            <div class="news-box">
+                <div class="news-img">
+                    <a href="@Url.Action("Detail","Events", new { url = TLLib.Common.ConvertTitle(item.ProductName), id = item.ProductID})">
+                        <img src="@Url.Content("~/data/products/thumbs/"+item.ImageName)" alt="@item.ProductName" title="@item.ProductName" />
+                    </a>
+                </div>
+                <div class="news-content">
+                    <div class="news-name"><a href="@Url.Action("Detail","Events", new { url = TLLib.Common.ConvertTitle(item.ProductName), id = item.ProductID})">@item.ProductName</a></div>
+                    <span><i class="fa fa-clock-o"></i>&nbsp;<i><u>@item.CreateDate.Value.ToShortDateString() - @item.CreateDate.Value.ToShortTimeString()</u></i></span>
+                    <div class="description">@Html.Raw(item.Description)</div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="pager @(totalPage < 2 ? "invisible":"" )">
+        <a href="@Url.Action("Index",new { id = (int)ViewBag.CateID, page = 1})" class="@(PageCurrent==1?"current":"")">1</a>
+        @for (int i = PageCurrent - 3 > 1 ? PageCurrent - 3 : 2; i < page; i++)
+        {
+            <a href="@Url.Action("Index",new { id = (int)ViewBag.CateID, page = i})" class="@(PageCurrent==i?"current":"")">@i</a>
+        }
+        <a href="@Url.Action("Index",new { id = (int)ViewBag.CateID, page = totalPage})" class="@(PageCurrent==totalPage?"current":"")">@totalPage</a>
+    </div>
+
+</div>
